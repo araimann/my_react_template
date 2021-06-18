@@ -22,87 +22,83 @@ Als nächstes benötigen wir Babel. Da React ES6 Klassen und JSX (JavaScript Ext
 
 In der root erstellen wir eine .babelrc file in die folgende pre-sets hineinkommen:
 
-```{
+```
+  {
     "presets": ["env", "react"]
-}```
+  }
 
-Immer wenn Webpack verwendet wird, benötigen wir eine config File. Also erstellen wir in der root:
+  Immer wenn Webpack verwendet wird, benötigen wir eine config File. Also erstellen wir in der root:
 
-webpack.confog.js
+  webpack.confog.js
 
-Da rein schreiben wir das path Module das ein Node.js core modul ist, außerdem kommt da noch das HTML-Webpack Plugon rein.
-Anschließend wird eine React Entry File spezifiziert.
+  Da rein schreiben wir das path Module das ein Node.js core modul ist, außerdem kommt da noch das HTML-Webpack Plugon rein.
+  Anschließend wird eine React Entry File spezifiziert.
 
-```const path = require('path');
-// will create an index.html
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+  const path = require('path');
+  // will create an index.html
+  const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
-  entry: "./src/index.js",
-  output: {
-    path: path.join(__dirname, "/dist"),
-    filename: "index_bundle.js"
-  },
-  //specification of babel loader to transpile
-  module: {
-    rules: [
-      {
-        test: /\.js?$/,
-        exclude: /node_modules/,
-        loader: "babel-loader",
-        query: {
-          presets: ["@babel/preset-env"]
+  module.exports = {
+    entry: "./src/index.js",
+    output: {
+      path: path.join(__dirname, "/dist"),
+      filename: "index_bundle.js"
+    },
+    //specification of babel loader to transpile
+    module: {
+      rules: [
+        {
+          test: /\.js?$/,
+          exclude: /node_modules/,
+          loader: "babel-loader",
+          query: {
+            presets: ["@babel/preset-env"]
+          }
         }
-      }
+      ]
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: "./src/index.html"
+      })
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html"
-    })
-  ]
-};```
+  };
 
-Dann muss eine src Folder im root erstellt werden mit eine index.js file drin und in der alle React Files untergebracht werden.
-Der ```output``` gibt an wo das gebündelte JS abgelegt wird.
+  Dann muss eine src Folder im root erstellt werden mit eine index.js file drin und in der alle React Files untergebracht werden.
+  Der ```output``` gibt an wo das gebündelte JS abgelegt wird.
 
-Anschließend kommt folgendes in die index.js:
+  Anschließend kommt folgendes in die index.js:
 
-```import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './components/App'
+  ```import React from 'react'
+  import ReactDOM from 'react-dom'
+  import App from './components/App'
 
-ReactDOM.render(<App />, document.getElementById('app'));```
+  ReactDOM.render(<App />, document.getElementById('app'));```
 
-Nun muss die App.js erstellt werden. Diese kommt in die src/component Folder, die noch erstellt werden muss.
+  Nun muss die App.js erstellt werden. Diese kommt in die src/component Folder, die noch erstellt werden muss.
 
-```import React, { Component } from 'react';
+  ```import React, { Component } from 'react';
 
-class App extends Component {
-    return () {
+  class App extends Component {
+      return () {
 
-        <div>My React App</div>
+          <div>My React App</div>
 
-    };
-}
+      };
+  }
 
-export default App;```
+  export default App;```
 
-Jetzt müssen noch zwei Skripte zur package.json hinzugefügt werden.
-Der eine ist dazu da, um den webpack dev Server laufen zu lassen und der andere, um alle Skripte in den dist Ordner zu bündeln und puplikationsfähig zu machen.
+  Jetzt müssen noch zwei Skripte zur package.json hinzugefügt werden.
+  Der eine ist dazu da, um den webpack dev Server laufen zu lassen und der andere, um alle Skripte in den dist Ordner zu bündeln und puplikationsfähig zu machen.
 
-```"scripts": {
-    "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
-  }```
+  ```"scripts": {
+      "start": "webpack-dev-server --mode development --open --hot",
+      "build": "webpack --mode production"
+    }```
 
-  Jetzt kann die React Anwendung mir ```yarn start``` gestartet werden.
+    Jetzt kann die React Anwendung mir ```yarn start``` gestartet werden.
 
 
-
-
-
-
-
-
-"scripts" : {"test": "echo \"Test\" "}
+  "scripts" : {"test": "echo \"Test\" "}
+```
