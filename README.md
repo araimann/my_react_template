@@ -1,5 +1,5 @@
 Zuerst:
-```yarn init```
+`yarn init`
 Damit wird eine package JSON erzeugt.
 
 Als nächstes wird folgendes ausgeführt:
