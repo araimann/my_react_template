@@ -26,6 +26,7 @@ In der root erstellen wir eine .babelrc file in die folgende pre-sets hineinkomm
   {
     "presets": ["env", "react"]
   }
+```
 
   Immer wenn Webpack verwendet wird, benötigen wir eine config File. Also erstellen wir in der root:
 
@@ -69,15 +70,18 @@ In der root erstellen wir eine .babelrc file in die folgende pre-sets hineinkomm
 
   Anschließend kommt folgendes in die index.js:
 
-  `import React from 'react'
+  ```
+  import React from 'react'
   import ReactDOM from 'react-dom'
   import App from './components/App'
 
-  ReactDOM.render(<App />, document.getElementById('app'));`
+  ReactDOM.render(<App />, document.getElementById('app'));
+  ```
 
   Nun muss die App.js erstellt werden. Diese kommt in die src/component Folder, die noch erstellt werden muss.
 
-  `import React, { Component } from 'react';
+  ```
+  import React, { Component } from 'react';
 
   class App extends Component {
       return () {
@@ -87,12 +91,14 @@ In der root erstellen wir eine .babelrc file in die folgende pre-sets hineinkomm
       };
   }
 
-  export default App;`
+  export default App;
+  ```
 
   Jetzt müssen noch zwei Skripte zur package.json hinzugefügt werden.
   Der eine ist dazu da, um den webpack dev Server laufen zu lassen und der andere, um alle Skripte in den dist Ordner zu bündeln und puplikationsfähig zu machen.
 
-  `"scripts": {
+  ```
+    "scripts": {
       "start": "webpack-dev-server --mode development --open --hot",
       "build": "webpack --mode production"
     }`
@@ -101,4 +107,4 @@ In der root erstellen wir eine .babelrc file in die folgende pre-sets hineinkomm
 
 
   "scripts" : {"test": "echo \"Test\" "}
-```
+  ```
