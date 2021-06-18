@@ -108,3 +108,6 @@ In der root erstellen wir eine .babelrc file in die folgende pre-sets hineinkomm
 
   "scripts" : {"test": "echo \"Test\" "}
   ```
+
+  https://github.com/eleiva/react-es6-gsap-spinwheel-v2
+  https://codesandbox.io/s/spinning-prize-wheel-react-fyu57?file=/src/index.js:3560-3570
