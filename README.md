@@ -65,19 +65,19 @@ In der root erstellen wir eine .babelrc file in die folgende pre-sets hineinkomm
   };
 
   Dann muss eine src Folder im root erstellt werden mit eine index.js file drin und in der alle React Files untergebracht werden.
-  Der ```output``` gibt an wo das gebündelte JS abgelegt wird.
+  Der `output` gibt an wo das gebündelte JS abgelegt wird.
 
   Anschließend kommt folgendes in die index.js:
 
-  ```import React from 'react'
+  `import React from 'react'
   import ReactDOM from 'react-dom'
   import App from './components/App'
 
-  ReactDOM.render(<App />, document.getElementById('app'));```
+  ReactDOM.render(<App />, document.getElementById('app'));`
 
   Nun muss die App.js erstellt werden. Diese kommt in die src/component Folder, die noch erstellt werden muss.
 
-  ```import React, { Component } from 'react';
+  `import React, { Component } from 'react';
 
   class App extends Component {
       return () {
@@ -87,17 +87,17 @@ In der root erstellen wir eine .babelrc file in die folgende pre-sets hineinkomm
       };
   }
 
-  export default App;```
+  export default App;`
 
   Jetzt müssen noch zwei Skripte zur package.json hinzugefügt werden.
   Der eine ist dazu da, um den webpack dev Server laufen zu lassen und der andere, um alle Skripte in den dist Ordner zu bündeln und puplikationsfähig zu machen.
 
-  ```"scripts": {
+  `"scripts": {
       "start": "webpack-dev-server --mode development --open --hot",
       "build": "webpack --mode production"
-    }```
+    }`
 
-    Jetzt kann die React Anwendung mir ```yarn start``` gestartet werden.
+    Jetzt kann die React Anwendung mir `yarn start` gestartet werden.
 
 
   "scripts" : {"test": "echo \"Test\" "}
